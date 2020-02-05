@@ -72,18 +72,17 @@ func searchByRegion(houses []house, region string) []house {
 }
 func searchByRegions(houses []house, regions []string) []house {
 	result := make([]house, 0)
-	for _, region := range regions {
-		for _, value := range SearchBy(houses, func(houses house) bool {
-			if houses.region == region {
-				return true
+	for _, house := range houses{
+		for _, region := range regions {
+			if house.region == region {
+				result = append(result, house)
 			}
-			return false
-		}) {
-			result = append(result, value)
 		}
 	}
-
 	return result
 }
+
 func main() {
 }
+
+
